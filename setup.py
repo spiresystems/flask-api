@@ -16,7 +16,7 @@ author = 'Tom Christie'
 author_email = 'tom@tomchristie.com'
 license = 'BSD'
 install_requires = [
-    'Flask==0.10.1',
+    'Flask == 0.10.1',
 ]
 
 long_description = """Browsable web APIs for Flask."""
@@ -85,6 +85,8 @@ setup(
         'Operating System :: OS Independent',
         'Programming Language :: Python',
         'Programming Language :: Python :: 3',
+        'Programming Language :: Python :: 3.3',
+        'Programming Language :: Python :: 3.4',
         'Topic :: Internet :: WWW/HTTP',
     ]
 )

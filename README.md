@@ -1,4 +1,4 @@
-**Status**: Flask API is not currently under active development or maintenance. This will be reassessed once the Django REST framework kickstarter project reaches completion.
+**Status**: Flask API is not currently under active development. This will be reassessed once the Django REST framework Kickstarter project reaches completion.
 
 # [Flask API](http://www.flaskapi.org)
 
@@ -6,6 +6,7 @@ Browsable Web APIs for Flask - <http://www.flaskapi.org>
 
 [![Build Status][travis-image]][travis-link]
 [![Coverage Status][coveralls-image]][coveralls-link]
+[![PyPI Version][pypi-image]][pypi-link]
 
 ---
 
@@ -36,12 +37,12 @@ Future work on getting Flask API to a 1.0 release will include:
 
 It is also possible that the core of Flask API could be refactored into an external dependency, in order to make browsable APIs easily available to any Python web framework.
 
-## Installation
+## Installation
 
 Requirements:
 
-* Python 2.7 or 3.3.
-* Flask 0.10.
+* Python 2.7+ or 3.3+
+* Flask 0.10+
 
 Install using `pip`.
 
@@ -53,7 +54,7 @@ Import and initialize your application.
 
     app = FlaskAPI(__main__)
 
-## Responses
+## Responses
 
 Return any valid response object as normal, or return a `list` or `dict`.
 
@@ -155,10 +156,12 @@ To stay up to date with progress on Flask API, follow [Tom Christie on twitter][
 
 Many thanks to [Nicolas Clairon][nicolas-clarion] for making the `flask_api` PyPI package available.
 
-[travis-image]: https://travis-ci.org/tomchristie/flask-api.png?branch=master
+[travis-image]: http://img.shields.io/travis/tomchristie/flask-api/master.svg
 [travis-link]: https://travis-ci.org/tomchristie/flask-api
-[coveralls-image]: https://coveralls.io/repos/tomchristie/flask-api/badge.png?branch=master
+[coveralls-image]: http://img.shields.io/coveralls/tomchristie/flask-api/master.svg
 [coveralls-link]: https://coveralls.io/r/tomchristie/flask-api?branch=master
+[pypi-image]: http://img.shields.io/pypi/v/flask-api.svg
+[pypi-link]: https://pypi.python.org/pypi/flask-api
 [django-rest-framework]: http://www.django-rest-framework.org
 [tomchristie]: https://twitter.com/_tomchristie
 [nicolas-clarion]: https://github.com/namlook/
