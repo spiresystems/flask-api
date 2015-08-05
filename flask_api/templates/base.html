@@ -94,7 +94,7 @@
         {% endif %}
 
         <!--{% if 'OPTIONS' in allowed_methods %}
-            <form class="button-form" action="{{ request.full_path }}" method="POST" class="pull-right">
+            <form class="button-form" action="" method="POST" class="pull-right">
                 <- csrf_token ->
                 <input type="hidden" name="_method" value="OPTIONS" />
                 <button class="btn btn-primary js-tooltip" title="Make an OPTIONS request on the resource">OPTIONS</button>
@@ -102,7 +102,7 @@
         {% endif %}-->
 
         {% if 'DELETE' in allowed_methods %}
-            <form class="button-form" action="{{ request.full_path }}" method="POST" class="pull-right">
+            <form class="button-form" action="" method="POST" class="pull-right">
                 <!-- csrf_token -->
                 <input type="hidden" name="_method" value="DELETE" />
                 <button class="btn btn-danger js-tooltip" title="Make a DELETE request on the resource">DELETE</button>
@@ -128,7 +128,7 @@
                 <div>
                     <div class="well">
                         <div id="generic-content-form">
-                            <form action="{{ request.full_path }}" method="POST" class="form-horizontal">
+                            <form action="" method="POST" class="form-horizontal">
                                 <fieldset>
 <div class="control-group">
         <label for="id__content_type" class="control-label">Media type:</label>
