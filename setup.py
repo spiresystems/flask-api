@@ -16,7 +16,7 @@ author = 'Tom Christie'
 author_email = 'tom@tomchristie.com'
 license = 'BSD'
 install_requires = [
-    'Flask == 0.10.1',
+    'Flask >= 0.10.1',
 ]
 
 long_description = """Browsable web APIs for Flask."""
@@ -56,6 +56,7 @@ def get_package_data(package):
 
 
 if sys.argv[-1] == 'publish':
+    os.system("git clean -xdf")
     os.system("python setup.py sdist upload")
     args = {'version': get_version(package)}
     print("You probably want to also tag the version now:")

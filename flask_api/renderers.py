@@ -4,20 +4,10 @@ from flask import request, render_template, current_app
 from flask.json import JSONEncoder
 from flask.globals import _request_ctx_stack
 from flask_api.mediatypes import MediaType
+from flask_api.compat import apply_markdown
 import json
+import pydoc
 import re
-
-
-def html_escape(text):
-    escape_table = [
-        ("&", "&amp;"),
-        ("<", "&lt;"),
-        (">", "&gt;")
-    ]
-
-    for char, replacement in escape_table:
-        text = text.replace(char, replacement)
-    return text
 
 
 def dedent(content):
@@ -41,7 +31,9 @@ def dedent(content):
 
 
 def convert_to_title(name):
-    return name.replace('-', ' ').replace('_', ' ').capitalize()
+    for char in ['-', '_', '.']:
+        name = name.replace(char, ' ')
+    return name.capitalize()
 
 
 class BaseRenderer(object):
@@ -95,7 +87,8 @@ class BrowsableAPIRenderer(BaseRenderer):
         if data == '' and not mock_renderer.handles_empty_responses:
             mock_content = None
         else:
-            mock_content = mock_renderer.render(data, mock_media_type, indent=4)
+            text = mock_renderer.render(data, mock_media_type, indent=4)
+            mock_content = self._html_escape(text)
 
         # Determine the allowed methods on this view.
         adapter = _request_ctx_stack.top.url_adapter
@@ -104,9 +97,12 @@ class BrowsableAPIRenderer(BaseRenderer):
         endpoint = request.url_rule.endpoint
         view_name = str(endpoint)
         view_description = current_app.view_functions[endpoint].__doc__
-        if view_description is not None:
+        if apply_markdown is None and view_description:
             view_description = dedent(view_description)
-        mock_content = html_escape(mock_content)
+            view_description = pydoc.html.preformat(view_description)
+        elif apply_markdown is not None and view_description:
+            view_description = dedent(view_description)
+            view_description = apply_markdown(view_description)
 
         status = options['status']
         headers = options['headers']
@@ -124,3 +120,16 @@ class BrowsableAPIRenderer(BaseRenderer):
             'version': __version__
         }
         return render_template(self.template, **context)
+
+    @staticmethod
+    def _html_escape(text):
+        escape_table = [
+            ("&", "&amp;"),
+            ("<", "&lt;"),
+            (">", "&gt;")
+        ]
+
+        for char, replacement in escape_table:
+            text = text.replace(char, replacement)
+
+        return text

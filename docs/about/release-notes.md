@@ -2,6 +2,31 @@
 
 This project is currently in alpha.  It is functional and well tested but you are advised to pay close attention to the release notes when upgrading to future versions.
 
+## Version 0.6.9
+
+* Fixed `AttributeError` when rendering empty content using `BrowsableAPIRenderer`
+
+## Version 0.6.8
+
+* Fixed `AttributeError` with Blueprint handlers in Flask 0.11+
+
+## Version 0.6.7
+
+* Fixed compatibility issue between Flask 0.10 and 0.11
+
+## Version 0.6.6
+
+* Updated dependencies to allow newer versions of Flask
+
+## Version 0.6.5
+
+* Replaced periods in page titles with spaces
+
+## Version 0.6.4
+
+* Fixed escaping in link headers
+* Added support for Markdown in the browsable API (requires `markdown >= 2.1`)
+
 ## Version 0.6.3
 
 * Fixed handling of query strings (in Python 3)

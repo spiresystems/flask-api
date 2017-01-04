@@ -1,4 +1,4 @@
-**Status**: Flask API is not currently under active development. This will be reassessed once the Django REST framework Kickstarter project reaches completion.
+**Status**: Flask API is not currently under active development. This will be reassessed once the [Django REST framework](https://github.com/tomchristie/django-rest-framework) Kickstarter project reaches completion.
 
 # [Flask API](http://www.flaskapi.org)
 
@@ -50,7 +50,7 @@ Install using `pip`.
 
 Import and initialize your application.
 
-    from flask.ext.api import FlaskAPI
+    from flask_api import FlaskAPI
 
     app = FlaskAPI(__main__)
 
@@ -77,7 +77,7 @@ Access the parsed request data using `request.data`.  This will handle JSON or f
 The following example demonstrates a simple API for creating, listing, updating and deleting notes.
 
 	from flask import request, url_for
-	from flask.ext.api import FlaskAPI, status, exceptions
+	from flask_api import FlaskAPI, status, exceptions
 	
 	app = FlaskAPI(__name__)
 	
