@@ -1,6 +1,17 @@
 # Release Notes
 
-This project is currently in alpha.  It is functional and well tested but you are advised to pay close attention to the release notes when upgrading to future versions.
+## Version 1.0
+
+* Stable release to enter maintenance mode.
+
+## Version 0.7.1
+
+* Added customization of automatic API return types (`app.response_class.api_return_types`).
+
+## Version 0.7
+
+* Disabled rendering of text responses as API views.
+* Added additional HTTP status codes.
 
 ## Version 0.6.9
 
